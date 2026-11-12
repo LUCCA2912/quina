@@ -1,0 +1,84 @@
+      <section class="secao sobre" style="padding-top:0">
+        <div>
+          <span class="rotulo">O seu lugar no bairro</span>
+          <h2>A gente te espera na esquina.</h2>
+          <p>Rua Mateus Grou, 218<br>Pinheiros · São Paulo, SP</p>
+          <dl class="horarios">
+            <dt>Terça a quinta</dt><dd>18h às 23h</dd>
+            <dt>Sexta e sábado</dt><dd>18h à 0h</dd>
+            <dt>Domingo</dt><dd>17h às 22h</dd>
+            <dt>Segunda</dt><dd>Descanso da chapa</dd>
+          </dl>
+          <a class="botao" href="https://maps.google.com/?q=Rua+Mateus+Grou+218+Pinheiros" target="_blank" rel="noopener">Traçar meu caminho</a>
+        </div>
+
+        <div class="mapa-caixa">
+          <div class="mapa-abas">
+            <button class="chip ativo" id="abaMapa" onclick="mostrarAbaMapa()">Mapa da vizinhança</button>
+            <button class="chip" id="abaGoogle" onclick="mostrarAbaGoogle()">Google Maps</button>
+          </div>
+
+          <div class="mapa-area" id="mapaArea">
+      <svg id="mapaSvg" viewBox="194 204 700 440" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mapa fictício: a Quina fica na esquina da Av. dos Vizinhos com a Travessa do Queijo">
+        <rect class="m-terreno" x="-600" y="-500" width="2400" height="2000"/>
+        <rect class="m-quadra" x="30" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="296" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="562" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="828" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="30" y="236" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="296" y="236" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="828" y="236" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="30" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="296" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="562" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="828" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-praca" x="562" y="236" width="230" height="170" rx="14"/>
+        <circle class="m-arvore" cx="600" cy="280" r="16"/>
+        <circle class="m-arvore" cx="660" cy="330" r="16"/>
+        <circle class="m-arvore" cx="720" cy="290" r="16"/>
+        <circle class="m-arvore" cx="760" cy="360" r="16"/>
+        <circle class="m-arvore" cx="620" cy="370" r="16"/>
+        <circle class="m-arvore" cx="700" cy="250" r="16"/>
+        <path class="m-rio" d="M-600 660 C 200 610 700 730 1700 650 L1700 1500 L-600 1500Z"/>
+        <line class="m-linha" x1="544" y1="-300" x2="544" y2="640"/>
+        <line class="m-linha" x1="278" y1="-300" x2="278" y2="640"/>
+        <line class="m-linha" x1="810" y1="-300" x2="810" y2="640"/>
+        <line class="m-linha" x1="-300" y1="424" x2="1500" y2="424"/>
+        <line class="m-linha" x1="-300" y1="218" x2="1500" y2="218"/>
+        <text class="m-nome" x="544" y="120" text-anchor="middle" transform="rotate(-90 544 120)">Av. dos Vizinhos</text>
+        <text class="m-nome" x="278" y="330" text-anchor="middle" transform="rotate(-90 278 330)">Rua da Chapa</text>
+        <text class="m-nome" x="810" y="330" text-anchor="middle" transform="rotate(-90 810 330)">Rua do Picles</text>
+        <text class="m-nome" x="400" y="214" text-anchor="middle" transform="rotate(0 400 214)">Travessa do Smash</text>
+        <text class="m-nome" x="400" y="420" text-anchor="middle" transform="rotate(0 400 420)">Travessa do Queijo</text>
+        <text class="m-nome" x="677" y="330" text-anchor="middle" transform="rotate(0 677 330)">Praça da Batata</text>
+        <text class="m-nome" x="150" y="120" text-anchor="middle" transform="rotate(0 150 120)">🥖 Padaria parceira</text>
+        <text class="m-nome" x="960" y="330" text-anchor="middle" transform="rotate(0 960 330)">🚇 Metrô Cheddar</text>
+        <text class="m-nome" x="400" y="640" text-anchor="middle" transform="rotate(0 400 640)">Rio Ketchup</text>
+        <g id="pino" class="m-pino" role="img" aria-label="Quina, hamburgueria de esquina" transform="translate(544 424)">
+          <circle class="m-onda" r="22"/>
+          <path d="M0 0 C-22 -24 -22 -50 0 -50 C22 -50 22 -24 0 0Z" fill="#E63A27" stroke="#fff" stroke-width="3"/>
+          <circle cy="-34" r="8" fill="#fff"/>
+          <rect x="-34" y="-96" width="68" height="26" rx="13" fill="#261D18"/>
+          <text x="0" y="-78" text-anchor="middle" fill="#FFC72C" style="font: 700 14px Anton, Impact, sans-serif; letter-spacing: .08em">QUINA</text>
+        </g>
+      </svg>
+            <div class="mapa-botoes">
+              <button onclick="darZoom(0.8)" aria-label="Aproximar">+</button>
+              <button onclick="darZoom(1.25)" aria-label="Afastar">−</button>
+              <button onclick="centralizarMapa()" aria-label="Centralizar na Quina">⌖</button>
+            </div>
+            <div class="mapa-info" id="mapaInfo" hidden>
+              <b>Quina · Hamburgueria de esquina</b><br>
+              Rua Mateus Grou, 218 (fictício)<br>
+              <small>Ter a qui 18h–23h · Sex e sáb 18h–0h · Dom 17h–22h</small>
+            </div>
+          </div>
+
+          <div class="mapa-area" id="areaGoogle" hidden>
+            <iframe id="quadroGoogle" title="Google Maps" loading="lazy" allowfullscreen></iframe>
+          </div>
+
+          <p class="dica" style="padding:.5rem .8rem;margin:0">Local fictício deste projeto conceitual. Arraste o mapa, use a roda do mouse ou os botões + e − para dar zoom.</p>
+        </div>
+      </section>
+

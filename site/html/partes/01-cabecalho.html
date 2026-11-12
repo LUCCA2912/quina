@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hamburgueria de esquina | Quina</title>
+  <link rel="icon" href="../imagens/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    if (localStorage.getItem('tema') == 'escuro') {
+      document.documentElement.classList.add('escuro');
+    }
+  </script>
+</head>
+<body class="visitante">
+  <header class="cabecalho">
+    <a class="logo" href="#index" aria-label="Quina, hamburgueria de esquina">
+      <img class="logo-marrom" src="../imagens/logo-marrom.svg" alt="Quina, hamburgueria de esquina">
+      <img class="logo-creme" src="../imagens/logo-creme.svg" alt="">
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a class="so-logado" id="menu-cardapio" href="#cardapio">Cardápio</a>
+      <a class="so-logado" id="menu-pedidos" href="#pedidos">Meus pedidos</a>
+      <a class="so-logado" id="menu-perfil" href="#perfil">Meu perfil</a>
+      <div class="conta-menu so-logado">
+        <span id="nomeUsuario"></span>
+        <button class="botao botao-contorno botao-pequeno" onclick="sair()">Sair</button>
+      </div>
+    </nav>
+
+    <div class="acoes">
+      <div class="botoes-acesso so-visitante">
+        <a class="botao botao-contorno botao-pequeno" href="#login">Entrar</a>
+        <a class="botao botao-pequeno" href="#cadastro">Cadastre-se</a>
+      </div>
+      <button class="botao-icone" id="botaoTema" onclick="trocarTema()" aria-label="Alternar modo claro e escuro"></button>
+      <a class="botao-icone so-logado" href="#carrinho" aria-label="Carrinho de compras">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h10.2L20 7H6"/><circle cx="9" cy="19" r="1.2"/><circle cx="17" cy="19" r="1.2"/></svg>
+        <b class="contador" id="contadorCarrinho">0</b>
+      </a>
+      <button class="botao-icone so-logado" id="botaoMenu" onclick="abrirMenu()" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <div class="faixa-conta so-visitante">
+    <a class="botao botao-contorno botao-pequeno" href="#login">Entrar</a>
+    <a class="botao botao-pequeno" href="#cadastro">Cadastre-se</a>
+  </div>
+

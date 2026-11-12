@@ -1,0 +1,89 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 3.5rem 0 4rem;
+}
+
+.hero h1 span { color: var(--vermelho); }
+
+.hero-subtitulo {
+  font-size: 1.15rem;
+  color: var(--texto-suave);
+  max-width: 44ch;
+}
+
+.botoes-hero {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 1.6rem 0;
+}
+
+.nota {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+.estrelas {
+  color: var(--dourado);
+  letter-spacing: 0.1em;
+}
+
+.hero-foto {
+  position: relative;
+}
+
+.hero-foto img {
+  display: block;
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: 50% 40%;
+  border-radius: 1.4rem;
+  box-shadow: var(--sombra);
+}
+
+.selo {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--dourado);
+  color: #17100B;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.45rem 0.8rem;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+
+.etiqueta-vidro {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--vidro);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+}
+
+.etiqueta-vidro b {
+  font-family: 'Anton', Impact, sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.etiqueta-vidro small { color: var(--texto-suave); }
+

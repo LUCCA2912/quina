@@ -1,0 +1,78 @@
+@media (max-width: 900px) {
+
+  .hero,
+  .tela-dividida,
+  .sobre,
+  .combo,
+  .carrinho-layout,
+  .conta {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .tres-colunas,
+  .rodape-grade { grid-template-columns: 1fr; }
+
+  .dois-campos { grid-template-columns: 1fr; }
+
+  .logo img { width: 165px; }
+
+  .secao { padding: 3rem 0; }
+  .combo { padding: 2rem 1.4rem; }
+  .hero-foto img { height: 400px; }
+  .foto-lateral { height: 340px; order: 2; }
+  .menu-lateral { position: static; }
+
+  
+  #botaoMenu { display: grid; }
+  .acoes { margin-left: auto; }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--fundo);
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .menu.aberto { display: flex; }
+  .conta-menu { margin-left: 0; }
+
+  
+  .cabecalho .botoes-acesso { display: none; }
+  .faixa-conta { display: flex; }
+
+  
+  .modal { grid-template-columns: 1fr; max-width: 520px; }
+  .modal-img { height: 280px; min-height: 0; }
+
+  .item-carrinho { grid-template-columns: 56px 1fr auto; }
+  .item-carrinho img { width: 56px; height: 56px; }
+  .item-carrinho > b { grid-column: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+.pagina {
+  display: none;
+}
+
+.pagina.ativa {
+  display: block;
+}
+
+body.visitante .so-logado {
+  display: none !important;
+}
+
+body.membro .so-visitante {
+  display: none !important;
+}

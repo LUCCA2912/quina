@@ -1,0 +1,93 @@
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--vidro);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.logo img {
+  display: block;
+  width: 195px;
+}
+
+.logo-creme { display: none !important; }
+html.escuro .logo-marrom { display: none !important; }
+html.escuro .logo-creme { display: block !important; }
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex: 1;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover,
+.menu a.ativo {
+  border-color: var(--vermelho);
+}
+
+.conta-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+  font-size: 0.92rem;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.botoes-acesso {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.menu + .acoes { margin-left: 0; }
+
+.contador {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--vermelho);
+  color: #fff;
+  border-radius: 99px;
+  font-size: 0.68rem;
+  min-width: 19px;
+  padding: 1px 5px;
+  text-align: center;
+}
+
+#botaoMenu { display: none; }
+
+#botaoTema::before { content: '\263E'; }
+html.escuro #botaoTema::before { content: '\2600'; }
+
+.faixa-conta {
+  display: none;
+  gap: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  background: var(--fundo2);
+  border-bottom: 1px solid var(--borda);
+}
+
+.faixa-conta .botao { flex: 1; }
+

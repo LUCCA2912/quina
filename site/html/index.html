@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hamburgueria de esquina | Quina</title>
+  <link rel="icon" href="../imagens/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    if (localStorage.getItem('tema') == 'escuro') {
+      document.documentElement.classList.add('escuro');
+    }
+  </script>
+</head>
+<body class="visitante">
+  <header class="cabecalho">
+    <a class="logo" href="#index" aria-label="Quina, hamburgueria de esquina">
+      <img class="logo-marrom" src="../imagens/logo-marrom.svg" alt="Quina, hamburgueria de esquina">
+      <img class="logo-creme" src="../imagens/logo-creme.svg" alt="">
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a class="so-logado" id="menu-cardapio" href="#cardapio">Cardápio</a>
+      <a class="so-logado" id="menu-pedidos" href="#pedidos">Meus pedidos</a>
+      <a class="so-logado" id="menu-perfil" href="#perfil">Meu perfil</a>
+      <div class="conta-menu so-logado">
+        <span id="nomeUsuario"></span>
+        <button class="botao botao-contorno botao-pequeno" onclick="sair()">Sair</button>
+      </div>
+    </nav>
+
+    <div class="acoes">
+      <div class="botoes-acesso so-visitante">
+        <a class="botao botao-contorno botao-pequeno" href="#login">Entrar</a>
+        <a class="botao botao-pequeno" href="#cadastro">Cadastre-se</a>
+      </div>
+      <button class="botao-icone" id="botaoTema" onclick="trocarTema()" aria-label="Alternar modo claro e escuro"></button>
+      <a class="botao-icone so-logado" href="#carrinho" aria-label="Carrinho de compras">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h10.2L20 7H6"/><circle cx="9" cy="19" r="1.2"/><circle cx="17" cy="19" r="1.2"/></svg>
+        <b class="contador" id="contadorCarrinho">0</b>
+      </a>
+      <button class="botao-icone so-logado" id="botaoMenu" onclick="abrirMenu()" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <div class="faixa-conta so-visitante">
+    <a class="botao botao-contorno botao-pequeno" href="#login">Entrar</a>
+    <a class="botao botao-pequeno" href="#cadastro">Cadastre-se</a>
+  </div>
+
+  <main class="pagina" id="pagina-index">
+    <div class="container">
+      <section class="hero">
+        <div>
+          <span class="rotulo">Pinheiros, SP · na chapa desde 2019</span>
+          <h1>Deu fome?<br>Dobra a <span>esquina.</span></h1>
+          <p class="hero-subtitulo">Pão macio, carne na chapa e zero conversa fiada. Seu novo burger favorito mora aqui na Quina.</p>
+          <div class="botoes-hero">
+            <a class="botao" href="#cardapio">Quero meu burger</a>
+            <a class="botao botao-contorno" href="#cardapio">Ver cardápio</a>
+          </div>
+          <div class="nota"><span class="estrelas">★★★★★</span><span><b>4,9</b> · mais de 380 boas histórias</span></div>
+        </div>
+        <div class="hero-foto">
+          <img src="../imagens/hero.jpg" alt="Burger duplo com batatas fritas e Coca-Cola">
+          <span class="selo">100% artesanal</span>
+          <div class="etiqueta-vidro">
+            <div><b>Esse é o Quina Duplo</b><br><small>Dois smash. Queijo em dobro.</small></div>
+            <b>R$ 36</b>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="container">
+      <section class="secao">
+        <span class="rotulo">Escolha sua mordida</span>
+        <h2>Pouca firula. Muito burger.</h2>
+        <p class="suave" style="max-width:52ch">Receitas autorais, ingredientes de verdade e um favorito para cada tipo de fome.</p>
+        <div class="grade" id="destaques"></div>
+        <p style="margin-top:1.5rem"><a class="botao botao-contorno" href="#cardapio">Ver cardápio completo</a></p>
+      </section>
+
+      <section class="combo">
+        <div>
+          <span class="rotulo">O trio que não tem erro</span>
+          <h2>Bom sozinho. Melhor no combo.</h2>
+          <p>Quina Duplo + batata da casa de 150 g + refri em lata de 350 ml. Sua pausa favorita, sem faltar nada.</p>
+          <button class="botao" onclick="adicionarCombo()">Eu vou de combo</button>
+        </div>
+        <div>
+          <span class="preco-grande">R$ 49</span>
+          <p><span class="riscado">R$ 56 separados</span><br>R$ 7 a mais no seu bolso.</p>
+        </div>
+      </section>
+
+      <section class="secao sobre">
+        <div class="caixa-est">
+          <div><span class="rotulo">Est. 2019</span><b>Feita aqui.<br>Pra ficar.</b></div>
+        </div>
+        <div>
+          <span class="rotulo">Muito prazer, Quina</span>
+          <h2>Uma esquina. Duas amigas. Muita fome.</h2>
+          <p>A Quina nasceu em 2019, quando Bia e Marina trocaram o escritório por uma chapa em Pinheiros. A ideia era simples: fazer o burger que elas gostariam de comer depois de um dia cheio.</p>
+          <p>O balcão cresceu, a vizinhança chegou junto e a receita continua a mesma. Comida bem feita, música boa e lugar pra mais um.</p>
+        </div>
+      </section>
+
+      <section class="secao" style="padding-top:0">
+        <span class="rotulo">O jeito Quina de fazer</span>
+        <h2>O segredo? Não pular etapa.</h2>
+        <div class="tres-colunas">
+          <div class="passo"><b>01</b><div><h3>Fresco, todo dia</h3><p class="suave">Nosso blend é moído diariamente. Sem tempero que esconda o que importa: carne boa.</p></div></div>
+          <div class="passo"><b>02</b><div><h3>Chapa bem quente</h3><p class="suave">Pressão na medida e tempo certo. É assim que nasce aquela crostinha que faz barulho.</p></div></div>
+          <div class="passo"><b>03</b><div><h3>Fechou, serviu</h3><p class="suave">Pão tostado na manteiga, molho feito aqui e montagem na hora. Da chapa pra sua mão.</p></div></div>
+        </div>
+      </section>
+
+      <section class="secao" style="padding-top:0">
+        <span class="rotulo">A vizinhança tem a palavra</span>
+        <h2>Quem prova, volta. <span class="estrelas">4,9 ★</span></h2>
+        <div class="tres-colunas">
+          <figure class="painel avaliacao"><span class="estrelas">★★★★★</span><p>A crostinha do Quina Duplo é coisa séria. Pedi uma vez pra conhecer e agora a sexta-feira já tem endereço certo.</p><small><b>Luiza Martins</b> · Do time do Quina Duplo</small></figure>
+          <figure class="painel avaliacao"><span class="estrelas">★★★★★</span><p>O veggie não é figurante! Bem temperado, pão fofinho e uma batata que chega crocante. Virou meu pedido de sempre.</p><small><b>Rafael Nunes</b> · Fã do Verde sem Pose</small></figure>
+          <figure class="painel avaliacao"><span class="estrelas">★★★★★</span><p>Fui pelo burger e fiquei pelo clima. Atendimento querido, música boa e aquele balcão que faz a gente esquecer a hora.</p><small><b>Camila Rocha</b> · Vizinha de balcão</small></figure>
+        </div>
+        <p class="dica" style="margin-top:1rem">Avaliações e nota ilustrativas deste projeto conceitual.</p>
+      </section>
+
+      <section class="secao sobre" style="padding-top:0">
+        <div>
+          <span class="rotulo">O seu lugar no bairro</span>
+          <h2>A gente te espera na esquina.</h2>
+          <p>Rua Mateus Grou, 218<br>Pinheiros · São Paulo, SP</p>
+          <dl class="horarios">
+            <dt>Terça a quinta</dt><dd>18h às 23h</dd>
+            <dt>Sexta e sábado</dt><dd>18h à 0h</dd>
+            <dt>Domingo</dt><dd>17h às 22h</dd>
+            <dt>Segunda</dt><dd>Descanso da chapa</dd>
+          </dl>
+          <a class="botao" href="https://maps.google.com/?q=Rua+Mateus+Grou+218+Pinheiros" target="_blank" rel="noopener">Traçar meu caminho</a>
+        </div>
+
+        <div class="mapa-caixa">
+          <div class="mapa-abas">
+            <button class="chip ativo" id="abaMapa" onclick="mostrarAbaMapa()">Mapa da vizinhança</button>
+            <button class="chip" id="abaGoogle" onclick="mostrarAbaGoogle()">Google Maps</button>
+          </div>
+
+          <div class="mapa-area" id="mapaArea">
+      <svg id="mapaSvg" viewBox="194 204 700 440" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mapa fictício: a Quina fica na esquina da Av. dos Vizinhos com a Travessa do Queijo">
+        <rect class="m-terreno" x="-600" y="-500" width="2400" height="2000"/>
+        <rect class="m-quadra" x="30" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="296" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="562" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="828" y="30" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="30" y="236" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="296" y="236" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="828" y="236" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="30" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="296" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="562" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-quadra" x="828" y="442" width="230" height="170" rx="10"/>
+        <rect class="m-praca" x="562" y="236" width="230" height="170" rx="14"/>
+        <circle class="m-arvore" cx="600" cy="280" r="16"/>
+        <circle class="m-arvore" cx="660" cy="330" r="16"/>
+        <circle class="m-arvore" cx="720" cy="290" r="16"/>
+        <circle class="m-arvore" cx="760" cy="360" r="16"/>
+        <circle class="m-arvore" cx="620" cy="370" r="16"/>
+        <circle class="m-arvore" cx="700" cy="250" r="16"/>
+        <path class="m-rio" d="M-600 660 C 200 610 700 730 1700 650 L1700 1500 L-600 1500Z"/>
+        <line class="m-linha" x1="544" y1="-300" x2="544" y2="640"/>
+        <line class="m-linha" x1="278" y1="-300" x2="278" y2="640"/>
+        <line class="m-linha" x1="810" y1="-300" x2="810" y2="640"/>
+        <line class="m-linha" x1="-300" y1="424" x2="1500" y2="424"/>
+        <line class="m-linha" x1="-300" y1="218" x2="1500" y2="218"/>
+        <text class="m-nome" x="544" y="120" text-anchor="middle" transform="rotate(-90 544 120)">Av. dos Vizinhos</text>
+        <text class="m-nome" x="278" y="330" text-anchor="middle" transform="rotate(-90 278 330)">Rua da Chapa</text>
+        <text class="m-nome" x="810" y="330" text-anchor="middle" transform="rotate(-90 810 330)">Rua do Picles</text>
+        <text class="m-nome" x="400" y="214" text-anchor="middle" transform="rotate(0 400 214)">Travessa do Smash</text>
+        <text class="m-nome" x="400" y="420" text-anchor="middle" transform="rotate(0 400 420)">Travessa do Queijo</text>
+        <text class="m-nome" x="677" y="330" text-anchor="middle" transform="rotate(0 677 330)">Praça da Batata</text>
+        <text class="m-nome" x="150" y="120" text-anchor="middle" transform="rotate(0 150 120)">🥖 Padaria parceira</text>
+        <text class="m-nome" x="960" y="330" text-anchor="middle" transform="rotate(0 960 330)">🚇 Metrô Cheddar</text>
+        <text class="m-nome" x="400" y="640" text-anchor="middle" transform="rotate(0 400 640)">Rio Ketchup</text>
+        <g id="pino" class="m-pino" role="img" aria-label="Quina, hamburgueria de esquina" transform="translate(544 424)">
+          <circle class="m-onda" r="22"/>
+          <path d="M0 0 C-22 -24 -22 -50 0 -50 C22 -50 22 -24 0 0Z" fill="#E63A27" stroke="#fff" stroke-width="3"/>
+          <circle cy="-34" r="8" fill="#fff"/>
+          <rect x="-34" y="-96" width="68" height="26" rx="13" fill="#261D18"/>
+          <text x="0" y="-78" text-anchor="middle" fill="#FFC72C" style="font: 700 14px Anton, Impact, sans-serif; letter-spacing: .08em">QUINA</text>
+        </g>
+      </svg>
+            <div class="mapa-botoes">
+              <button onclick="darZoom(0.8)" aria-label="Aproximar">+</button>
+              <button onclick="darZoom(1.25)" aria-label="Afastar">−</button>
+              <button onclick="centralizarMapa()" aria-label="Centralizar na Quina">⌖</button>
+            </div>
+            <div class="mapa-info" id="mapaInfo" hidden>
+              <b>Quina · Hamburgueria de esquina</b><br>
+              Rua Mateus Grou, 218 (fictício)<br>
+              <small>Ter a qui 18h–23h · Sex e sáb 18h–0h · Dom 17h–22h</small>
+            </div>
+          </div>
+
+          <div class="mapa-area" id="areaGoogle" hidden>
+            <iframe id="quadroGoogle" title="Google Maps" loading="lazy" allowfullscreen></iframe>
+          </div>
+
+          <p class="dica" style="padding:.5rem .8rem;margin:0">Local fictício deste projeto conceitual. Arraste o mapa, use a roda do mouse ou os botões + e − para dar zoom.</p>
+        </div>
+      </section>
+
+      <section class="chamada-final">
+        <span class="rotulo">A próxima mordida é sua</span>
+        <h2>Sua fome já sabe o caminho.</h2>
+        <p>Na sua mesa ou no nosso balcão. Escolha seu burger e deixe a chapa com a gente.</p>
+        <a class="botao botao-claro" href="#cardapio">Pedir agora</a>
+      </section>
+    </div>
+  </main>
+
+  <main class="pagina container" id="pagina-cadastro">
+    <section class="tela-dividida">
+      <img class="foto-lateral" src="../imagens/hero.jpg" alt="Burger duplo com batatas fritas e Coca-Cola">
+
+      <div>
+        <span class="rotulo">Chega mais, vizinho</span>
+        <p class="aviso-acesso">🔒 Para acessar o site, entre ou cadastre-se.</p>
+        <h2>Faz parte da Quina.</h2>
+        <p class="suave">Uma conta, seus pedidos e um lugar garantido na nossa esquina. É rápido e sem firula.</p>
+
+        <form id="formCadastro" onsubmit="cadastrar(event)" novalidate>
+          <label>Nome completo
+            <input type="text" id="cadastro-nome" oninput="this.value = mascaraNome(this.value)" maxlength="60" autocomplete="name" placeholder="Como podemos te chamar?">
+          </label>
+          <label>E-mail
+            <input type="email" id="cadastro-email" maxlength="80" autocomplete="email" placeholder="voce@exemplo.com">
+          </label>
+          <div class="dois-campos">
+            <label>Celular
+              <input type="text" id="cadastro-celular" oninput="this.value = mascaraCelular(this.value)" maxlength="15" inputmode="numeric" placeholder="(11) 99999-9999">
+            </label>
+            <label>CPF
+              <input type="text" id="cadastro-cpf" oninput="this.value = mascaraCPF(this.value)" maxlength="14" inputmode="numeric" placeholder="000.000.000-00">
+            </label>
+          </div>
+          <div class="dois-campos">
+            <label class="campo-senha">Senha
+              <input type="password" id="cadastro-senha" maxlength="20" placeholder="Crie uma senha">
+              <button type="button" class="ver-senha" onclick="verSenha('cadastro-senha')" aria-label="Mostrar ou ocultar senha">ver</button>
+              <span class="dica">Mínimo de 8 caracteres, com letras e números.</span>
+            </label>
+            <label class="campo-senha">Confirmar senha
+              <input type="password" id="cadastro-confirmar" maxlength="20" placeholder="Repita sua senha">
+              <button type="button" class="ver-senha" onclick="verSenha('cadastro-confirmar')" aria-label="Mostrar ou ocultar senha">ver</button>
+            </label>
+          </div>
+          <label class="checkbox">
+            <input type="checkbox" id="cadastro-termos">Li e aceito os Termos de uso e a Política de privacidade.
+          </label>
+
+          <p class="erro" id="cadastro-erro" role="alert"></p>
+          <button class="botao botao-cheio" type="submit">Criar minha conta</button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.2rem">Já tem uma conta? <a href="#login"><b>Entrar</b></a></p>
+      </div>
+    </section>
+  </main>
+
+  <main class="pagina container" id="pagina-login">
+    <section class="tela-dividida">
+      <img class="foto-lateral" src="../imagens/hero.jpg" alt="Burger duplo com batatas fritas e Coca-Cola">
+
+      <div>
+        <span class="rotulo">Seu lugar no balcão</span>
+        <p class="aviso-acesso">🔒 Para acessar o site, entre ou cadastre-se.</p>
+        <h2>Entrar na Quina.</h2>
+        <p class="suave">Acesse sua conta para pedir de novo, acompanhar a entrega e salvar seus favoritos.</p>
+
+        <form id="formLogin" onsubmit="entrar(event)" novalidate>
+          <label>E-mail
+            <input type="email" id="login-email" maxlength="80" autocomplete="email" placeholder="voce@exemplo.com">
+          </label>
+          <label class="campo-senha">Senha
+              <input type="password" id="login-senha" maxlength="20" placeholder="Digite sua senha">
+              <button type="button" class="ver-senha" onclick="verSenha('login-senha')" aria-label="Mostrar ou ocultar senha">ver</button>
+            </label>
+
+          <p class="erro" id="login-erro" role="alert"></p>
+          <button class="botao botao-cheio" type="submit">Entrar</button>
+        </form>
+
+        <div class="ou">ou</div>
+        <button class="botao botao-contorno botao-cheio" onclick="entrarComGoogle()">Continuar com Google</button>
+
+        <p style="text-align:center;margin-top:1.2rem">Ainda não é da vizinhança? <a href="#cadastro"><b>Cadastre-se</b></a></p>
+      </div>
+    </section>
+  </main>
+
+  <main class="pagina container" id="pagina-cardapio" style="padding-top:2.5rem">
+    <span class="rotulo">Escolha sua mordida</span>
+    <h2>Pouca firula. Muito burger.</h2>
+
+    <div class="barra-entrega">
+      <span id="enderecoEntrega">📍 Entrega em Pinheiros</span>
+      <span>⏱ 35–45 min · Entrega R$ 6,00</span>
+    </div>
+
+    <div class="busca">
+      <span>🔍</span>
+      <input type="search" id="campoBusca" oninput="mostrarProdutos()" maxlength="40" placeholder="Buscar burger, ingrediente ou bebida" aria-label="Buscar no cardápio">
+    </div>
+
+    <div class="chips" id="areaChips"></div>
+
+    <div class="grade" id="listaProdutos"></div>
+
+    <p class="dica" style="margin-top:1.5rem">Os burgers são vendidos individualmente. Alergias ou restrições? Converse com a nossa equipe.</p>
+
+    <div class="barra-carrinho" id="barraCarrinho">
+      <span id="textoBarra"></span>
+      <a class="botao botao-claro botao-pequeno" href="#carrinho">Ver meu carrinho</a>
+    </div>
+  </main>
+
+  <main class="pagina container" id="pagina-carrinho" style="padding-top:2.5rem">
+    <span class="rotulo" id="subtitulo">Sua sacola</span>
+    <h2>A fome já tem endereço.</h2>
+    <div class="etapas">
+      <span class="atual">01 · Carrinho</span>
+      <span>02 · Pagamento</span>
+      <span>03 · Pronto</span>
+    </div>
+
+    <div id="conteudoCarrinho"></div>
+  </main>
+
+  <main class="pagina container" id="pagina-pedidos">
+    <div class="conta">
+      <aside class="menu-lateral painel">
+        <div class="avatar">A</div>
+        <b class="nome-lateral"></b>
+        <p class="suave" style="font-size:.85rem">Da vizinhança desde 2026</p>
+        <a href="#pedidos" class="ativo">Meus pedidos</a>
+        <a href="#perfil">Meus dados</a>
+        <button onclick="sair()">Sair da conta</button>
+      </aside>
+
+      <section>
+        <span class="rotulo">Sua conta / Meus pedidos</span>
+        <h2>Cada pedido, uma boa mordida.</h2>
+
+        <button class="botao botao-contorno botao-pequeno" type="button" onclick="baixarJson()">Baixar pedidos.json</button>
+
+        <div class="busca">
+          <span>🔍</span>
+          <input type="search" id="campoBuscaPedido" oninput="mostrarPedidos()" maxlength="40" placeholder="Buscar por número ou produto" aria-label="Buscar pedidos">
+        </div>
+
+        <div class="chips" id="areaFiltros"></div>
+        <div id="listaPedidos"></div>
+      </section>
+    </div>
+  </main>
+
+  <main class="pagina container" id="pagina-perfil">
+    <div class="conta">
+      <aside class="menu-lateral painel">
+        <div class="avatar">A</div>
+        <b class="nome-lateral"></b>
+        <p class="suave" style="font-size:.85rem">Da vizinhança desde 2026</p>
+        <a href="#pedidos">Meus pedidos</a>
+        <a href="#perfil" class="ativo">Meus dados</a>
+        <button onclick="sair()">Sair da conta</button>
+      </aside>
+
+      <form id="formPerfil" onsubmit="salvarPerfil(event)" novalidate>
+        <span class="rotulo">Sua conta / Meus dados</span>
+        <h2 id="tituloPerfil">A casa é sua.</h2>
+
+        <div class="painel" style="margin-bottom:1.2rem">
+          <h3>Quem senta à mesa</h3>
+          <div class="dois-campos">
+            <label>Nome completo
+              <input type="text" id="perfil-nome" oninput="this.value = mascaraNome(this.value)" maxlength="60">
+            </label>
+            <label>E-mail
+              <input type="email" id="perfil-email" maxlength="80">
+            </label>
+            <label>Celular
+              <input type="text" id="perfil-celular" oninput="this.value = mascaraCelular(this.value)" maxlength="15" inputmode="numeric">
+            </label>
+            <label>CPF
+              <input type="text" id="perfil-cpf" oninput="this.value = mascaraCPF(this.value)" maxlength="14" inputmode="numeric"><span class="dica">Usado na nota fiscal.</span>
+            </label>
+            <label>Data de nascimento (opcional)
+              <input type="text" id="perfil-nascimento" oninput="this.value = mascaraData(this.value)" maxlength="10" inputmode="numeric" placeholder="dd/mm/aaaa">
+            </label>
+          </div>
+        </div>
+
+        <div class="painel" style="margin-bottom:1.2rem">
+          <h3>Onde a fome mora</h3>
+          <div class="dois-campos">
+            <label>CEP
+              <input type="text" id="perfil-cep" oninput="this.value = mascaraCEP(this.value)" maxlength="9" inputmode="numeric" placeholder="00000-000">
+            </label>
+            <label>Rua
+              <input type="text" id="perfil-rua" maxlength="60">
+            </label>
+            <label>Número
+              <input type="text" id="perfil-numero" oninput="this.value = mascaraNumero(this.value)" maxlength="6" inputmode="numeric">
+            </label>
+            <label>Complemento
+              <input type="text" id="perfil-complemento" maxlength="30">
+            </label>
+            <label>Bairro
+              <input type="text" id="perfil-bairro" maxlength="40">
+            </label>
+            <label>Referência para entrega
+              <input type="text" id="perfil-referencia" maxlength="60">
+            </label>
+          </div>
+        </div>
+
+        <p class="erro" id="perfil-erro" role="alert"></p>
+        <button class="botao" type="submit">Salvar meus dados</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-grade">
+      <div>
+        <img src="../imagens/logo-creme.svg" alt="Quina, hamburgueria de esquina">
+        <p>Burger de verdade. Gente de verdade. Sua esquina favorita em Pinheiros.</p>
+      </div>
+      <div>
+        <h4>Dá uma volta</h4>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#index">A Quina</a>
+        <a href="#pedidos">Meus pedidos</a>
+        <a href="#login">Entrar</a>
+        <a href="#cadastro">Cadastre-se</a>
+      </div>
+      <div>
+        <h4>Acompanha a chapa</h4>
+        <p>@quina.burger<br>Rua Mateus Grou, 218<br>Pinheiros · São Paulo, SP</p>
+      </div>
+      <p class="slogan">Boa comida. Boa companhia. Boa esquina.</p>
+    </div>
+    <p class="direitos">© 2026 Quina Hamburgueria. Feito com fome e carinho. Projeto conceitual: marca, conteúdo e contatos fictícios.</p>
+  </footer>
+
+  <div id="aviso" role="status" aria-live="polite"></div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

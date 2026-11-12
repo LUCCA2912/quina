@@ -1,0 +1,81 @@
+html.escuro body {
+  background:
+    radial-gradient(900px 520px at 88% -6%, rgba(230, 58, 39, 0.26), transparent 62%),
+    radial-gradient(700px 500px at -8% 38%, rgba(255, 199, 44, 0.08), transparent 60%),
+    var(--fundo);
+  background-attachment: fixed;
+}
+
+html.escuro .cabecalho {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, var(--vermelho), var(--dourado), var(--vermelho)) 1;
+}
+
+html.escuro .rotulo { color: var(--dourado); }
+html.escuro .hero h1 span { text-shadow: 0 0 28px rgba(230, 58, 39, 0.45); }
+html.escuro .hero-foto img { box-shadow: 0 30px 60px -22px rgba(230, 58, 39, 0.65); }
+
+html.escuro .hero-foto::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -16px;
+  bottom: -16px;
+  width: 42%;
+  aspect-ratio: 1;
+  background: var(--vermelho);
+  border-radius: 18px;
+}
+
+html.escuro .hero-foto::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -12px;
+  top: -12px;
+  width: 26%;
+  aspect-ratio: 1;
+  background: var(--dourado);
+  border-radius: 14px;
+}
+
+html.escuro .botao:not(.botao-contorno):not(.botao-claro) { box-shadow: 0 8px 22px -8px rgba(230, 58, 39, 0.85); }
+html.escuro .cartao-produto:hover { border-color: var(--vermelho); box-shadow: 0 14px 30px -14px rgba(230, 58, 39, 0.7); }
+html.escuro .preco, html.escuro .total { color: var(--dourado); }
+html.escuro .passo > b { color: var(--dourado); }
+html.escuro .chip.ativo { background: var(--vermelho); border-color: var(--vermelho); color: #fff; }
+
+html.escuro .combo {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #8E1B10, #C42B1B 55%, #E63A27);
+  color: #FFF3E3;
+}
+
+html.escuro .combo > * { position: relative; z-index: 1; }
+
+html.escuro .combo::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  right: -44px;
+  bottom: -44px;
+  width: 170px;
+  height: 170px;
+  background: var(--dourado);
+  border-radius: 22px;
+  transform: rotate(14deg);
+}
+
+html.escuro .combo .botao { background: var(--dourado); border-color: var(--dourado); color: #2B0A06; box-shadow: none; }
+html.escuro .caixa-est { background: linear-gradient(160deg, #3A1410, #1F1210); border-color: var(--dourado); }
+html.escuro .caixa-est b { color: var(--dourado); }
+html.escuro .chamada-final { background: linear-gradient(135deg, #B3261A, #E63A27); }
+html.escuro .chamada-final .botao-claro { background: var(--dourado); border-color: var(--dourado); color: #2B0A06; }
+html.escuro .barra-carrinho { background: var(--vermelho); color: #fff; }
+html.escuro .barra-carrinho .botao-claro { background: var(--dourado); border-color: var(--dourado); color: #2B0A06; }
+html.escuro .avatar { background: var(--dourado); color: #2B0A06; }
+html.escuro .pedido.andamento { box-shadow: 0 0 0 1px var(--vermelho), 0 12px 28px -14px rgba(230, 58, 39, 0.7); }
+html.escuro .rodape { background: #0F0705; border-top: 4px solid var(--vermelho); }
+html.escuro #fundoModal { background: rgba(0, 0, 0, 0.8); }
+

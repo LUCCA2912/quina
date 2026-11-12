@@ -1,0 +1,28 @@
+  <main class="pagina container" id="pagina-pedidos">
+    <div class="conta">
+      <aside class="menu-lateral painel">
+        <div class="avatar">A</div>
+        <b class="nome-lateral"></b>
+        <p class="suave" style="font-size:.85rem">Da vizinhança desde 2026</p>
+        <a href="#pedidos" class="ativo">Meus pedidos</a>
+        <a href="#perfil">Meus dados</a>
+        <button onclick="sair()">Sair da conta</button>
+      </aside>
+
+      <section>
+        <span class="rotulo">Sua conta / Meus pedidos</span>
+        <h2>Cada pedido, uma boa mordida.</h2>
+
+        <button class="botao botao-contorno botao-pequeno" type="button" onclick="baixarJson()">Baixar pedidos.json</button>
+
+        <div class="busca">
+          <span>🔍</span>
+          <input type="search" id="campoBuscaPedido" oninput="mostrarPedidos()" maxlength="40" placeholder="Buscar por número ou produto" aria-label="Buscar pedidos">
+        </div>
+
+        <div class="chips" id="areaFiltros"></div>
+        <div id="listaPedidos"></div>
+      </section>
+    </div>
+  </main>
+

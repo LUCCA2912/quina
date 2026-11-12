@@ -1,0 +1,66 @@
+  <main class="pagina container" id="pagina-perfil">
+    <div class="conta">
+      <aside class="menu-lateral painel">
+        <div class="avatar">A</div>
+        <b class="nome-lateral"></b>
+        <p class="suave" style="font-size:.85rem">Da vizinhança desde 2026</p>
+        <a href="#pedidos">Meus pedidos</a>
+        <a href="#perfil" class="ativo">Meus dados</a>
+        <button onclick="sair()">Sair da conta</button>
+      </aside>
+
+      <form id="formPerfil" onsubmit="salvarPerfil(event)" novalidate>
+        <span class="rotulo">Sua conta / Meus dados</span>
+        <h2 id="tituloPerfil">A casa é sua.</h2>
+
+        <div class="painel" style="margin-bottom:1.2rem">
+          <h3>Quem senta à mesa</h3>
+          <div class="dois-campos">
+            <label>Nome completo
+              <input type="text" id="perfil-nome" oninput="this.value = mascaraNome(this.value)" maxlength="60">
+            </label>
+            <label>E-mail
+              <input type="email" id="perfil-email" maxlength="80">
+            </label>
+            <label>Celular
+              <input type="text" id="perfil-celular" oninput="this.value = mascaraCelular(this.value)" maxlength="15" inputmode="numeric">
+            </label>
+            <label>CPF
+              <input type="text" id="perfil-cpf" oninput="this.value = mascaraCPF(this.value)" maxlength="14" inputmode="numeric"><span class="dica">Usado na nota fiscal.</span>
+            </label>
+            <label>Data de nascimento (opcional)
+              <input type="text" id="perfil-nascimento" oninput="this.value = mascaraData(this.value)" maxlength="10" inputmode="numeric" placeholder="dd/mm/aaaa">
+            </label>
+          </div>
+        </div>
+
+        <div class="painel" style="margin-bottom:1.2rem">
+          <h3>Onde a fome mora</h3>
+          <div class="dois-campos">
+            <label>CEP
+              <input type="text" id="perfil-cep" oninput="this.value = mascaraCEP(this.value)" maxlength="9" inputmode="numeric" placeholder="00000-000">
+            </label>
+            <label>Rua
+              <input type="text" id="perfil-rua" maxlength="60">
+            </label>
+            <label>Número
+              <input type="text" id="perfil-numero" oninput="this.value = mascaraNumero(this.value)" maxlength="6" inputmode="numeric">
+            </label>
+            <label>Complemento
+              <input type="text" id="perfil-complemento" maxlength="30">
+            </label>
+            <label>Bairro
+              <input type="text" id="perfil-bairro" maxlength="40">
+            </label>
+            <label>Referência para entrega
+              <input type="text" id="perfil-referencia" maxlength="60">
+            </label>
+          </div>
+        </div>
+
+        <p class="erro" id="perfil-erro" role="alert"></p>
+        <button class="botao" type="submit">Salvar meus dados</button>
+      </form>
+    </div>
+  </main>
+

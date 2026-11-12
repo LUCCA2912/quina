@@ -1,0 +1,31 @@
+  <main class="pagina container" id="pagina-login">
+    <section class="tela-dividida">
+      <img class="foto-lateral" src="../imagens/hero.jpg" alt="Burger duplo com batatas fritas e Coca-Cola">
+
+      <div>
+        <span class="rotulo">Seu lugar no balcão</span>
+        <p class="aviso-acesso">🔒 Para acessar o site, entre ou cadastre-se.</p>
+        <h2>Entrar na Quina.</h2>
+        <p class="suave">Acesse sua conta para pedir de novo, acompanhar a entrega e salvar seus favoritos.</p>
+
+        <form id="formLogin" onsubmit="entrar(event)" novalidate>
+          <label>E-mail
+            <input type="email" id="login-email" maxlength="80" autocomplete="email" placeholder="voce@exemplo.com">
+          </label>
+          <label class="campo-senha">Senha
+              <input type="password" id="login-senha" maxlength="20" placeholder="Digite sua senha">
+              <button type="button" class="ver-senha" onclick="verSenha('login-senha')" aria-label="Mostrar ou ocultar senha">ver</button>
+            </label>
+
+          <p class="erro" id="login-erro" role="alert"></p>
+          <button class="botao botao-cheio" type="submit">Entrar</button>
+        </form>
+
+        <div class="ou">ou</div>
+        <button class="botao botao-contorno botao-cheio" onclick="entrarComGoogle()">Continuar com Google</button>
+
+        <p style="text-align:center;margin-top:1.2rem">Ainda não é da vizinhança? <a href="#cadastro"><b>Cadastre-se</b></a></p>
+      </div>
+    </section>
+  </main>
+

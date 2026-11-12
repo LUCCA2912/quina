@@ -1,0 +1,92 @@
+.mapa-caixa {
+  position: relative;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+.mapa-abas {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+.mapa-area {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--fundo2);
+  cursor: grab;
+  touch-action: none;
+}
+
+.mapa-area svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.mapa-area iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.m-terreno { fill: var(--fundo2); }
+.m-quadra { fill: var(--cartao); stroke: var(--borda); stroke-width: 2; }
+.m-praca { fill: var(--parque); }
+.m-arvore { fill: var(--arvore); }
+.m-rio { fill: var(--rio); }
+.m-linha { stroke: var(--borda); stroke-width: 2; stroke-dasharray: 10 10; }
+.m-nome { fill: var(--texto-suave); font-size: 12px; font-weight: 600; pointer-events: none; }
+.m-pino { cursor: pointer; }
+
+.m-onda {
+  fill: var(--vermelho);
+  opacity: 0.3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: onda 2s ease-out infinite;
+}
+
+@keyframes onda {
+  from { transform: scale(0.6); opacity: 0.5; }
+  to { transform: scale(2.2); opacity: 0; }
+}
+
+.mapa-botoes {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.mapa-botoes button {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--borda);
+  background: var(--cartao);
+  color: var(--texto);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.mapa-info {
+  position: absolute;
+  left: 0.7rem;
+  bottom: 0.7rem;
+  max-width: 270px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.85rem;
+  box-shadow: var(--sombra);
+}
+
+.mapa-info[hidden] { display: none; }
+

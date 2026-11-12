@@ -1,0 +1,49 @@
+  <main class="pagina container" id="pagina-cadastro">
+    <section class="tela-dividida">
+      <img class="foto-lateral" src="../imagens/hero.jpg" alt="Burger duplo com batatas fritas e Coca-Cola">
+
+      <div>
+        <span class="rotulo">Chega mais, vizinho</span>
+        <p class="aviso-acesso">🔒 Para acessar o site, entre ou cadastre-se.</p>
+        <h2>Faz parte da Quina.</h2>
+        <p class="suave">Uma conta, seus pedidos e um lugar garantido na nossa esquina. É rápido e sem firula.</p>
+
+        <form id="formCadastro" onsubmit="cadastrar(event)" novalidate>
+          <label>Nome completo
+            <input type="text" id="cadastro-nome" oninput="this.value = mascaraNome(this.value)" maxlength="60" autocomplete="name" placeholder="Como podemos te chamar?">
+          </label>
+          <label>E-mail
+            <input type="email" id="cadastro-email" maxlength="80" autocomplete="email" placeholder="voce@exemplo.com">
+          </label>
+          <div class="dois-campos">
+            <label>Celular
+              <input type="text" id="cadastro-celular" oninput="this.value = mascaraCelular(this.value)" maxlength="15" inputmode="numeric" placeholder="(11) 99999-9999">
+            </label>
+            <label>CPF
+              <input type="text" id="cadastro-cpf" oninput="this.value = mascaraCPF(this.value)" maxlength="14" inputmode="numeric" placeholder="000.000.000-00">
+            </label>
+          </div>
+          <div class="dois-campos">
+            <label class="campo-senha">Senha
+              <input type="password" id="cadastro-senha" maxlength="20" placeholder="Crie uma senha">
+              <button type="button" class="ver-senha" onclick="verSenha('cadastro-senha')" aria-label="Mostrar ou ocultar senha">ver</button>
+              <span class="dica">Mínimo de 8 caracteres, com letras e números.</span>
+            </label>
+            <label class="campo-senha">Confirmar senha
+              <input type="password" id="cadastro-confirmar" maxlength="20" placeholder="Repita sua senha">
+              <button type="button" class="ver-senha" onclick="verSenha('cadastro-confirmar')" aria-label="Mostrar ou ocultar senha">ver</button>
+            </label>
+          </div>
+          <label class="checkbox">
+            <input type="checkbox" id="cadastro-termos">Li e aceito os Termos de uso e a Política de privacidade.
+          </label>
+
+          <p class="erro" id="cadastro-erro" role="alert"></p>
+          <button class="botao botao-cheio" type="submit">Criar minha conta</button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.2rem">Já tem uma conta? <a href="#login"><b>Entrar</b></a></p>
+      </div>
+    </section>
+  </main>
+

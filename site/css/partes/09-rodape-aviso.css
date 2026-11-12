@@ -1,0 +1,62 @@
+.rodape {
+  margin-top: 2rem;
+  padding: 3.5rem 1.4rem 1.5rem;
+  background: #1F1610;
+  color: #F3EBDD;
+}
+
+.rodape-grade {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.4fr;
+  gap: 2.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.rodape img { width: 170px; margin-bottom: 1rem; }
+.rodape p { font-size: 0.9rem; opacity: 0.8; }
+.rodape h4 { color: #FFC72C; }
+
+.rodape a {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.rodape a:hover { opacity: 1; color: #FFC72C; }
+
+.rodape .slogan {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  text-transform: uppercase;
+  line-height: 1.05;
+  opacity: 1;
+}
+
+.rodape .direitos {
+  max-width: 1180px;
+  margin: 2.5rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid #43332A;
+  font-size: 0.78rem;
+  opacity: 0.6;
+}
+
+#aviso {
+  position: fixed;
+  bottom: 1.2rem;
+  left: 50%;
+  z-index: 90;
+  transform: translate(-50%, 6rem);
+  padding: 0.8rem 1.4rem;
+  background: var(--texto);
+  color: var(--fundo);
+  border-radius: 12px;
+  font-weight: 600;
+  transition: transform 0.3s;
+}
+
+#aviso.mostrar { transform: translate(-50%, 0); }
+

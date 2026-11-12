@@ -1,0 +1,26 @@
+  <main class="pagina container" id="pagina-cardapio" style="padding-top:2.5rem">
+    <span class="rotulo">Escolha sua mordida</span>
+    <h2>Pouca firula. Muito burger.</h2>
+
+    <div class="barra-entrega">
+      <span id="enderecoEntrega">📍 Entrega em Pinheiros</span>
+      <span>⏱ 35–45 min · Entrega R$ 6,00</span>
+    </div>
+
+    <div class="busca">
+      <span>🔍</span>
+      <input type="search" id="campoBusca" oninput="mostrarProdutos()" maxlength="40" placeholder="Buscar burger, ingrediente ou bebida" aria-label="Buscar no cardápio">
+    </div>
+
+    <div class="chips" id="areaChips"></div>
+
+    <div class="grade" id="listaProdutos"></div>
+
+    <p class="dica" style="margin-top:1.5rem">Os burgers são vendidos individualmente. Alergias ou restrições? Converse com a nossa equipe.</p>
+
+    <div class="barra-carrinho" id="barraCarrinho">
+      <span id="textoBarra"></span>
+      <a class="botao botao-claro botao-pequeno" href="#carrinho">Ver meu carrinho</a>
+    </div>
+  </main>
+
